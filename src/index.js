@@ -1,14 +1,9 @@
 // Set up your application entry point here...
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-class App extends React.Component {
-  render() {
-    return (
-      <p>Hello World</p>
-    );
-  }
-}
+import App from './components/App';
 
 ReactDOM.render(
   <App />,
