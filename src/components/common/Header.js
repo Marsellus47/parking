@@ -1,34 +1,35 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
-const Header = () => {
-  return (
-    <Navbar inverse collapseOnSelect>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <NavLink exact to="/" activeClassName="active">Parking</NavLink>
-        </Navbar.Brand>
-        <Navbar.Toggle />
-      </Navbar.Header>
-      <Navbar.Collapse>
-        <Nav>
-          <LinkContainer to="/Item1">
-            <NavItem eventKey={1}>Link 1</NavItem>
-          </LinkContainer>
-          <LinkContainer to="/Item2">
-            <NavItem eventKey={2}>Link 2</NavItem>
-          </LinkContainer>
-          <NavDropdown eventKey={3} title="Account" id="basic-nav-dropdown">
-            <LinkContainer to="/logout">
-              <MenuItem eventKey={3.1}>Logout</MenuItem>
-            </LinkContainer>
-          </NavDropdown>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  );
-};
+export default class Header extends Component {
+  constructor(props) {
+    super(props);
 
-export default Header;
+    this.state = { activeItem: 'home' };
+
+    this.handleItemClick = this.handleItemClick.bind(this);
+  }
+
+  handleItemClick(event, { name }) {
+    this.setState({ activeItem: name });
+  }
+
+  render() {
+    const { activeItem } = this.state;
+
+    return (
+      <div>
+        <Menu pointing secondary>
+          <Menu.Item header>Parking</Menu.Item>
+          <Menu.Item name="home" active={activeItem === 'home'} onClick={this.handleItemClick} as={Link} to="/" />
+          <Menu.Item name="search" active={activeItem === 'search'} onClick={this.handleItemClick} as={Link} to="/search" />
+          <Menu.Item name="add" active={activeItem === 'add'} onClick={this.handleItemClick} as={Link} to="/add" />
+          <Menu.Menu position="right">
+            <Menu.Item name="login" active={activeItem === 'login'} onClick={this.handleItemClick} as={Link} to="/login" />
+          </Menu.Menu>
+        </Menu>
+      </div>
+    );
+  }
+}

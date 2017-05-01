@@ -1,7 +1,7 @@
 // Set up your application entry point here...
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css';
 
 import App from './components/App';
 
