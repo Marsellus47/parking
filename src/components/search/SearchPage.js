@@ -7,7 +7,7 @@ import {
   Pricings,
   ParkingTypes,
   Locations,
-  CarTypes,
+  VehicleTypes,
   Inserted,
   Durations
 } from '../../constants/dropdownItems';
@@ -19,7 +19,7 @@ const SearchPage = () => {
         <Icon name="search" />
         Search
       <Header.Subheader>
-          Find parking according to your preferences
+        Find parking according to your preferences
       </Header.Subheader>
       </Header>
 
@@ -64,12 +64,12 @@ const SearchPage = () => {
         </Form.Field>
 
         <Form.Field width={4}>
-          <label>Car type</label>
+          <label>Vehicle type</label>
           <Dropdown
-            placeholder="Car type"
+            placeholder="Vehicle type"
             fluid
             selection
-            options={CarTypes}
+            options={VehicleTypes}
           />
         </Form.Field>
 

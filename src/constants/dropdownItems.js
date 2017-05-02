@@ -32,8 +32,8 @@ export const ParkingTypes = [
   { key: '5', text: 'Wholly on pavement', value: 'pavement_wholly' }
 ];
 
-export const CarTypes = [
-  { key: '1', text: 'Private', value: 'private' },
+export const VehicleTypes = [
+  { key: '1', text: 'Car', value: 'car' },
   { key: '2', text: 'Van', value: 'van' },
   { key: '3', text: 'Truck', value: 'truck' },
   { key: '4', text: 'Bus', value: 'bus' }
